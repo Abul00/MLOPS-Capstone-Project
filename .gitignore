@@ -209,6 +209,6 @@ __marimo__/
 local_s3/
 cred.txt
 
-models/
+# models/
 logs/
 notebooks/
