@@ -8,4 +8,6 @@ nltk==3.8.1
 numpy==1.26.4
 pandas==2.3.3
 prometheus_client==0.23.1
-
+scipy==1.14.0
+scikit-learn==1.5.1
+psutil==6.0.0
