@@ -60,9 +60,9 @@
 34. Add dockerfile and start docker-desktop in background
     Also before proceeding make sure: [switch the mlflow server setup to param version, change cmd on dockerfile]
 35. go to root dir and: "docker build -t capstone-app:latest ."
-36. Try running the image: "docker rudocker run -p 8888:5000 -e CAPSTONE_TEST=8c8a51229ab34f57176362ad4f398b7ad4d21601 capstone-app:latestn -p 8888:5000 capstone-app:latest"
+36. Try running the image: "docker run -p 8888:5000 capstone-app:latest"
     - This run will give 'OSError: capstone_test environment variable is not set'...obviously
-    - alternate: 
+    - alternate: docker run -p 8888:5000 -e CAPSTONE_TEST=8c8a51229ab34f57176362ad4f398b7ad4d21601 capstone-app:latest
     - docker push youruser/capstone-app:latest (optional)
     - optional: try to delete image locally and pull it from dockerhub and run (optional)
 
@@ -119,7 +119,7 @@ aws eks --region us-east-1 update-kubeconfig --name flask-app-cluster (This ensu
     eksctl delete cluster --name flask-app-cluster --region us-east-1
 
     Also, verify cluster deletion:
-    eksctl get cluster --region us-east-1
+    eksctl get cluster --region us-east-1 
 
 43. Verify the cluster status:
     aws eks --region us-east-1 describe-cluster --name flask-app-cluster --query "cluster.status"
@@ -138,7 +138,7 @@ kubectl get svc
 47. Deploy the app on EKS via CICD pipeline 
   >> edit ci.yaml, deployment.yaml, dockerfile
   >> Also edit the security group for nodes and edit inbound rule for 5000 port
-
+ 
 
 48. Once the LoadBalancer service is up, get the external IP:
 kubectl get svc flask-app-service
